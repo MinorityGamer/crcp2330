@@ -13,8 +13,7 @@ CHIP And {
     IN a, b;
     OUT out;
 
-    PARTS:
-    // Put your code here:
-    Nand(a=a ,b=b , out=nandout);
-    Not(in=nandout, out=out);
+    PARTS:								
+    Nand(a=a ,b=b , out=nandout);	//input b into NAND input a, input b into NAND input b
+    Not(in=nandout, out=out);       //Nandout into the NOT input
 }
