@@ -14,8 +14,7 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    // Put your code here:
-    Not(in=a,out=notAout);
-    Not(in=b,out=notBout);
-    Nand(a=notAout,b=notBout,out=out);
+    Not(in=a,out=notAout);					//Input A gets 'notted'
+    Not(in=b,out=notBout);					//Input B gets 'notted' 
+    Nand(a=notAout,b=notBout,out=out);      //A(not) and B(not) feeds into NAND inputs 
 }
