@@ -14,8 +14,8 @@ CHIP DMux {
     OUT a, b;
 
     PARTS:
-    Not(in=sel,out=selNot); 
-    And(a=selNot,b=in,out=a); 
-    And(a=in,b=sel,out=b); 
-    // Put your code here:
+    Not(in=sel,out=selNot);        //inverts select 
+    And(a=selNot,b=in,out=a); //takes the input and the inverted select ouputs to a
+    And(a=in,b=sel,out=b);     //takes the input and select 
+    
 }
