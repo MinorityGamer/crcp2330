@@ -14,8 +14,8 @@ CHIP Mux {
     OUT out;
 
     PARTS:
-    Not(in=sel,out=selNot);
-    And(in=selNot,in=a,out=andOne);
-    And(in=sel,in=b,out=andTwo); 
-    Or(in=andOne,in=andTwo,out=out); 
+    Not(in=sel,out=selNot);           //inverts sel
+    And(a=selNot,b=a,out=andOne);   //takes in selNot and a 
+    And(a=sel,b=b,out=andTwo);      //takes in sel and b  
+    Or(a=andOne,b=andTwo,out=out);   //takes in AND gate outputs
 }
