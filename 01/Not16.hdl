@@ -13,5 +13,9 @@ CHIP Not16 {
     OUT out[16];
 
     PARTS:
+    for i=0:16
+    	Not(in = in[i],out=out[i]);
+    end
+   
     // Put your code here:
 }
