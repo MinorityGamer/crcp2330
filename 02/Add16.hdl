@@ -36,7 +36,7 @@ CHIP Add16 {
     
     FullAdder(a=a[13],b=b[13],c=cOut13,sum=out[13],carry=cOut14);
     FullAdder(a=a[14],b=b[14],c=cOut14,sum=out[14],carry=cOut15);
-    FullAdder(a=a[15],b=b[15],c=cOut15,sum=out[15],carry=cOut); //We're just gonna assume this gets grounded or something along those lines 
+    FullAdder(a=a[15],b=b[15],c=cOut15,sum=out[15],carry=cOut); //output
    
 
 }
