@@ -7,6 +7,8 @@
  * 16-bit incrementer:
  * out = in + 1 (arithmetic addition)
  */
+ //So just adjusting the Add16?????? 
+ //Do more research about it
 
 CHIP Inc16 {
     IN in[16];
@@ -14,4 +16,6 @@ CHIP Inc16 {
 
     PARTS:
    // Put you code here:
+   Add16(a=in[16],b=true,out=out[16]);
+
 }
