@@ -56,9 +56,9 @@ CHIP ALU {
     And16(a=xOut, b=yOut, out=XY);
     Mux16(a=XY, b=xPlusY, sel=f, out=result);
 
-    // negate the result of above and mux it based on the no flag
-    Not16(in=result, out=negated);
-    Mux16(a=result, b=negated, sel=no, out=out, out[0..7]=out7, out[8..15]=out15, out[15]=negative);
+    // inverts the sum/product
+    Not16(in=result, out=notResult);
+    Mux16(a=result, b=notResult, sel=no, out=out, out[0..7]=out7, out[8..15]=out15, out[15]=negative);
 
     // determine if the entire out is zero
     Or8Way(in=out7, out=ranOut7);
