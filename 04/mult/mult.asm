@@ -9,34 +9,43 @@
 
 // Put your code here.
 
-@2    //goes to the third slot (0,1,2)
+@2    //goes to the third slot 
 M=0	  //clears out the answer box
 
-@0     //goes to the first slot
-D=M    //if the slot is equal to zero
+@3   //clears out fourth slot just in case
+M=0
+
+@0   //if slot one is zero
+D=M  
 @END
 D;JEQ	
 
-@1     //goes to the second slot 
-D=M    //if second slot is equal to zero 
+@1   //if slot two is zero
+D=M
 @END
 D;JEQ	
 
+@0	
+D=M	
+@3	//keeps this box OUT OF THE WAY
+M=D	
 
-(LOOP) //loop de loop
-@1	//at second slot 
+
+(LOOP)
+@1	//second slot 
 D=M	
 
-@2	//at third slot
-M=D+M	//RAM[2] holding number + previous val
+@2	//third slot
+M=D+M	//number + previous val
 
-@3	//at fourth slot 
-M=M-1	//get first number and - 1
+@3	//fourth slot used 
+M=M-1	//number1 - 1
 
 D=M	
 @LOOP	
-D;JGT			 
+D;JGT		
+
 
 (END)
 @END
-0;JMP	//Loop to keep it from going off
+0;JMP	//loop to keep it from going on forever
