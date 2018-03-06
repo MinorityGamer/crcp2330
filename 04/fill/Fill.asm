@@ -14,22 +14,59 @@
 // Put your code here.
 
 
-   /*   How many pixels? 
-   		1-button not pressed ->white, button pressed-> darken screen
-       if(if key input){
-           write black to every pixel.
-       }
-       if not 
-       		write white to every pixel 
+   //   How many pixels? 
+   //		1-button not pressed ->white, button pressed-> darken screen
+   //    if(if key input){
+   //        write black to every pixel.
+    //   }
+     //  if not 
+       //		write white to every pixel 
 
-   */
+ //(BLACK)
+ //M=-1
+ //(WHITE)
+ //M=0 
+ //(END)
 
-   //-------------
+//...
+  
+@SCREEN 
+D=A
+@addr //holds the address of pixel
+M=D //To (0,0)
 
- (LOOP)
- (BLACK)
- M=-1
- (WHITE)
- M=0 
- (END)
+(LOOP)
+@KBD  //keyboard 
+D=M 
+@WHITE 
+D;JEQ 
+@BLACK 
+0;JMP
+
+
+(WHITE)
+  @addr
+  A=M 
+  M=0 // white pixel
+  @NEXT
+  0;JMP
+
+(BLACK)
+  @addr
+  //A=M 
+  M=-1 // black pixel
+  @NEXT
+  0;JMP
+
+(NEXT)
+  @addr
+  D=M+1
+  M=D 
+  @KBD
+  D=A-D
+  @START
+  D;JEQ
+  @LOOP
+  0;JMP
+
 
