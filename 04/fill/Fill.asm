@@ -30,43 +30,69 @@
 
 //...
   
-@SCREEN 
+@8192
 D=A
-@addr //holds the address of pixel
-M=D //To (0,0)
+@inputs
+M=D
+
+@i 
+M=0 
 
 (LOOP)
-@KBD  //keyboard 
-D=M 
-@WHITE 
-D;JEQ 
-@BLACK 
-0;JMP
 
+// Get the color based on the keyboard.
+@KBD
+D=M
+@bow
+M=0
+@SKIP
+D;JEQ
+@bow
+M=-1
+(SKIP)
 
-(WHITE)
-  @addr
-  A=M 
-  M=0 // white pixel
-  @NEXT
-  0;JMP
+// Get the memory address for the screen input.
+@SCREEN
+D=A
+@i
+D=D+M
+@input
+M=D
+
+@i
+M=M+1 
+D=M
+@inputs
+D=D-M
+@VALID
+D;JNE
+@i
+M=0
+(VALID)
+
+// goes to black or whit
+@bow
+D=M
+@WHITE
+D;JEQ
+@BLACK
+D;JNE
 
 (BLACK)
-  @addr
-  //A=M 
-  M=-1 // black pixel
-  @NEXT
-  0;JMP
 
-(NEXT)
-  @addr
-  D=M+1
-  M=D 
-  @KBD
-  D=A-D
-  @START
-  D;JEQ
-  @LOOP
-  0;JMP
+@input
+D=M
+A=D
+M=-1    //black it out
+@LOOP
+0;JMP 
 
+(WHITE)
+
+@input
+D=M
+A=D
+M=0     //white it out
+@LOOP
+0;JMP
 
