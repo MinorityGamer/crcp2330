@@ -23,9 +23,11 @@ D=D-M
 @END 
 D;JGT //if i>n goto END 
 
+
 @address 
 A=M 
 M=-1 //RAM[Address]=-1 (16 pxls)
+
 
 @i 
 M=M+1 

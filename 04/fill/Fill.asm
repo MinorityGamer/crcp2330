@@ -22,17 +22,9 @@
      //  if not 
        //		write white to every pixel 
 
- //(BLACK)
- //M=-1
- //(WHITE)
- //M=0 
- //(END)
-
-//...
-  
 @8192
 D=A
-@inputs
+@input
 M=D
 
 @i 
@@ -62,7 +54,7 @@ M=D
 @i
 M=M+1 
 D=M
-@inputs
+@input
 D=D-M
 @VALID
 D;JNE
