@@ -24,7 +24,7 @@
  * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
  * than to the address resulting from executing the current instruction. 
  */
-
+//complete
 CHIP CPU {
 
     IN  inM[16],         // M value input  (M = contents of RAM[A])
@@ -51,16 +51,16 @@ CHIP CPU {
     
     ALU(x=D,y=AM,zx=instruction[11],nx=instruction[10],zy=instruction[9],ny=instruction[8],f=instruction[7],no=instruction[6],out=outN,out=outM,zr=zr,ng=ng);
 
-    And(a=instruction[15],b=instruction[4],out=inDR);
-    DRegister(in=outN,load=inDR,out=D);
+    And(a=instruction[15],b=instruction[4],out=inD);
+    DRegister(in=outN,load=inD,out=D);
 
     And(a=instruction[15],b=instruction[3],out=writeM);
 
-    Not(in=ng,out=p);
+    Not(in=ng,out=pos);
     Not(in=zr,out=nzr);
     And(a=instruction[15],b=instruction[0],out=jgt);
-    And(a=p,b=nzr,out=pnzr);
-    And(a=jgt,b=pnzr,out=ld1);
+    And(a=pos,b=nzr,out=posnzr);
+    And(a=jgt,b=posnzr,out=ld1);
 
     And(a=instruction[15],b=instruction[1],out=jeq);
     And(a=jeq,b=zr,out=ld2);
