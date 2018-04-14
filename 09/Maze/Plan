@@ -1,0 +1,35 @@
+Plan 
+Class Ball {
+	//Creates a circle 
+	//ball has an x and y coordinate, size 
+	//ball can move up, down, left and right 
+	//method to destroy 
+}
+Class Wall {
+	//creates a wall
+	//wall has an x,y, height, and width 
+	//wall has a getPosition method  
+	//method to destroy
+}
+Class Maze{
+	//creates multiple walls 
+	//method to destroy all walls
+}
+Class EndPt{
+	//creates an end point square
+	//end point has an x,y,size
+	//endPt has a getPosition method 
+	//method to destroy
+}
+class game{
+	//creates all objects 
+	//runs game
+	//ends games and deallocates all the memory
+	
+}
+
+Main{
+	//start a new game 
+	//runs game
+	//ends game
+}
