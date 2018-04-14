@@ -1,27 +1,27 @@
 class Ball {
 
-   field int x, y; // screen location of the square's top-left corner
-   field int radius; // radius of circle in pixels
+   field int x, y; //the ball's x and y coordinate 
+   field int rad; // radius of the ball in pxls
 
-   /** Constructs a new square with a given location and size. */
-   constructor Ball new(int Ax, int Ay, int Aradius) {
+   /** Constructs the Ball at the start. */
+   constructor Ball new(int Ax, int Ay, int Arad) {
       let x = Ax;
       let y = Ay;
-      let radius = Aradius;
+      let rad = Arad;
       do draw();
       return this;
    }
 
-   /** gets rid of circle */)
-   method void delet() {
+   /** gets rid of ball */)
+   method void del() {
       do Memory.deAlloc(this);
       return;
    }
 
-   /** Draws the circle on the screen. */
+   /** Draws the ball to the screen. */
    method void draw() {
       do Screen.setColor(true);
-      do Screen.drawCircle(x, y, radius);
+      do Screen.drawCircle(x, y, rad);
       return;
    }
 
@@ -29,46 +29,46 @@ class Ball {
    method void moveUp() {
       if (y > 1) {
          do Screen.setColor(false);
-         do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+         do Screen.drawCircle(x, (y + rad) - 1, rad);
          let y = y - 2;
          do Screen.setColor(true);
-         do Screen.drawRectangle(x, y, x + size, y + 1);
+         do Screen.drawCircle(x, y, x + rad, rad);
       }
       return;
    }
 
-   /** Moves the square down by 2 pixels. */
+   /** Moves the ball down by 2 pixels. */
    method void moveDown() {
-      if ((y + size) < 254) {
+      if ((y + rad) < 254) {
          do Screen.setColor(false);
-         do Screen.drawRectangle(x, y, x + size, y + 1);
+         do Screen.drawCircle(x, y, x + rad, rad);
          let y = y + 2;
          do Screen.setColor(true);
-         do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+         do Screen.drawCircle(x, (y + rad) - 1, rad);
       }
       return;
    }
 
-   /** Moves the square left by 2 pixels. */
+   /** Moves the ball left by 2 pixels. */
    method void moveLeft() {
       if (x > 1) {
          do Screen.setColor(false);
-         do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+         do Screen.drawCircle((x + rad) - 1, y, rad);
          let x = x - 2;
          do Screen.setColor(true);
-         do Screen.drawRectangle(x, y, x + 1, y + size);
+         do Screen.drawCircle(x, y, rad);
       }
       return;
    }
 
-   /** Moves the square right by 2 pixels. */
+   /** Moves the ball right by 2 pixels. */
    method void moveRight() {
-      if ((x + size) < 510) {
+      if ((x + rad) < 510) {
          do Screen.setColor(false);
-         do Screen.drawRectangle(x, y, x + 1, y + size);
+         do Screen.drawCircle(x, y, x + 1, rad);
          let x = x + 2;
          do Screen.setColor(true);
-         do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+         do Screen.drawCircle((x + rad) - 1, y, rad);
       }
       return;
    }
