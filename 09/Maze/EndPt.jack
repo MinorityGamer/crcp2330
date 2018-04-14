@@ -1,1 +1,26 @@
-EndPt.jack
+class EndPt {
+
+   field int x, y; //the xy coord 
+   field int size; //the size of the End point 
+
+   /** Constructs the EndPt at the start. */
+   constructor Ball new(int Ax, int Ay, int ASize) {
+      let x = Ax;
+      let y = Ay;
+      let size = Asize;
+      do draw();
+      return this;
+   }
+
+   /** gets rid of the end point */)
+   method void del() {
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Draws the ball to the screen. */
+   method void draw() {
+      do Screen.setColor(true);
+      do Screen.drawRectangle(x, y, size, size);
+      return;
+   }
