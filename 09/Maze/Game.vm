@@ -2,8 +2,8 @@ function Game.new 0
 push constant 2
 call Memory.alloc 1
 pop pointer 0
-push constant 0
-push constant 0
+push constant 100
+push constant 100
 push constant 30
 call Ball.new 3
 pop this 0

@@ -8,7 +8,7 @@ class Game {
 
    /** new Game */
    constructor Game new() {
-      let ball = Ball.new(0, 0, 30);
+      let ball = Ball.new(100, 100, 30);
       let direction = 0;  // initial state is no movement
       return this;
    }
