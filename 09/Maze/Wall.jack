@@ -1,1 +1,28 @@
-Wall.jack
+class Wall{
+   field int x, y; //the rectangle top left corner
+   field int x2,y2; //the rectangle bottom right corner 
+
+/**constructs wall*/
+   constructor Wall new(int Ax, int Ay, int Ax2, int Ay2) {
+      let x = Ax;
+      let y = Ay;
+      let x2 = Ax2; 
+      let y2 = Ay2; 
+      do draw();
+      return this;
+   }
+
+   /** gets rid of Wall */
+   method void del() {
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Draws the Wall to the screen. */
+   method void draw() {
+      do Screen.setColor(true);
+      do Screen.drawCircle(x, y, x2, y2);
+      return;
+   }
+
+}

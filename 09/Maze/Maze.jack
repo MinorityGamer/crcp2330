@@ -1,1 +1,18 @@
-Maze.jack
+class Maze {
+   //array of maze 
+   /** Constructs a new Maze. */
+   constructor Game new() {
+      //for however many walls
+      {
+         
+      }
+      return this; 
+   }
+
+   /** Disposes this Maze. */
+   method void dispose() {
+      for(int i <; int i < ;i++) //for loop 
+         do w.del();
+      do Memory.deAlloc(this);
+      return;
+   }

@@ -24,3 +24,9 @@ class EndPt {
       do Screen.drawRectangle(x, y, size, size);
       return;
    }
+     method int getX(){
+      return x;
+   }
+   method int getY(){
+      return y; 
+   }

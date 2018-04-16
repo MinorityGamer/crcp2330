@@ -1,6 +1,4 @@
-/**
-Starts up Game that moves a ball around a maze 
- */
+/**Starts up Game that moves a ball around a maze */
 
 class Game {
    field Ball b; // the ball of this game
@@ -9,14 +7,14 @@ class Game {
 
    /** Constructs a new Game. */
    constructor Game new() {
-      let b = Ball.new(0, 0, 30); //creates a ball
+      let b = Ball.new(0,0 , 20); //creates a ball
       let orient = 0;  // initial state is no movement
       return this;
    }
 
    /** Disposes this game. */
    method void dispose() {
-      do b.del();
+      do b.dispose();
       do Memory.deAlloc(this);
       return;
    }
