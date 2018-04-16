@@ -1,35 +1,36 @@
 /**Starts up Game that moves a ball around a maze */
 
 class Game {
-   field Ball b; // the ball of this game
-   field int orient; // the ball's orientation 
-                     // 0=none, 1=up, 2=down, 3=left, 4=right
 
-   /** Constructs a new Game. */
+   field Ball ball; // the square of this game
+   field int direction; // the square's current direction: 
+                        // 0=none, 1=up, 2=down, 3=left, 4=right
+
+   /** new Game */
    constructor Game new() {
-      let b = Ball.new(0,0 , 20); //creates a ball
-      let orient = 0;  // initial state is no movement
+      let ball = Ball.new(0, 0, 30);
+      let direction = 0;  // initial state is no movement
       return this;
    }
 
    /** Disposes this game. */
    method void dispose() {
-      do b.dispose();
+      do ball.dispose();
       do Memory.deAlloc(this);
       return;
    }
 
-   /** Moves the ball. */
+   /** Moves ball. */
    method void moveBall() {
-      if (direction = 1) { do b.moveUp(); }
-      if (direction = 2) { do b.moveDown(); }
-      if (direction = 3) { do b.moveLeft(); }
-      if (direction = 4) { do b.moveRight(); }
+      if (direction = 1) { do ball.moveUp(); }
+      if (direction = 2) { do ball.moveDown(); }
+      if (direction = 3) { do ball.moveLeft(); }
+      if (direction = 4) { do ball.moveRight(); }
       do Sys.wait(5);  // delays the next movement
       return;
    }
 
-   /** Runs the game: handles the user's inputs and moves the ball accordingly */
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
    method void run() {
       var char key;  // the key currently pressed by the user
       var boolean exit;
@@ -56,6 +57,10 @@ class Game {
      return;
    }
 }
+
+
+
+
 
 
 

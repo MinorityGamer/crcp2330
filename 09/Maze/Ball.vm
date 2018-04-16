@@ -13,7 +13,7 @@ call Ball.draw 1
 pop temp 0
 push pointer 0
 return
-function Ball.del 0
+function Ball.dispose 0
 push argument 0
 pop pointer 0
 push pointer 0
