@@ -1,5 +1,5 @@
 /**Starts up Game that moves a ball around a maze */
-
+//maze form from http://www.ratbehavior.org/RatsAndMazes.htm
 class Game {
 
    field Ball ball; // the square of this game
@@ -9,15 +9,33 @@ class Game {
    field Wall w2;     //lower wall
    field Wall w3;    //left wall
    field Wall w4;    //right wall 
+  //add seven minor walls  
+   field Wall minW1; 
+   field Wall minW2; 
+   field Wall minW3; 
+   field Wall minW4; 
+   field Wall minW5; 
+   field Wall minW6; 
+   field Wall minW7; 
+   field Wall minW8; 
 
 
    /** new Game */
    constructor Game new() {
-      let ball = Ball.new(50, 50, 2);
+      let ball = Ball.new(15, 220, 2);
       let w1 = Wall.new(0,0,500,5); 
       let w2 = Wall.new(0,245,500,250);
       let w3 = Wall.new(0,0,5,250); 
-      let w4 = Wall.new(500,0,505,255); 
+      let w4 = Wall.new(500,0,505,255);
+      let minW1 = Wall.new(0,50,200,55); 
+      let minW2 = Wall.new(50,100,55,250);
+      let minW3 = Wall.new(50,100,200,105);
+      let minW4 = Wall.new(200,100,205,200);
+      let minW5 = Wall.new(150,150,155,250);
+      let minW6 = Wall.new(400,195,500,200);
+      let minW7 = Wall.new(300,0,305,200);
+      let minW8 = Wall.new(400,50,405,200);
+
 
       let direction = 0;  // initial state is no movement
       return this;
@@ -30,6 +48,14 @@ class Game {
       do w2.dispose();  
       do w3.dispose(); 
       do w4.dispose(); 
+      do minW1.dispose(); 
+      do minW2.dispose(); 
+      do minW3.dispose(); 
+      do minW4.dispose(); 
+      do minW5.dispose(); 
+      do minW6.dispose(); 
+      do minW7.dispose(); 
+      do minW8.dispose(); 
       do Memory.deAlloc(this);
       return;
    }
