@@ -66,11 +66,8 @@ call Screen.setColor 1
 pop temp 0
 push this 0
 push this 1
-push this 0
 push this 2
-add
-push this 2
-call Screen.drawCircle 4
+call Screen.drawCircle 3
 pop temp 0
 label IF_FALSE0
 push constant 0
@@ -91,11 +88,8 @@ call Screen.setColor 1
 pop temp 0
 push this 0
 push this 1
-push this 0
 push this 2
-add
-push this 2
-call Screen.drawCircle 4
+call Screen.drawCircle 3
 pop temp 0
 push this 1
 push constant 2
@@ -170,11 +164,8 @@ call Screen.setColor 1
 pop temp 0
 push this 0
 push this 1
-push this 0
-push constant 1
-add
 push this 2
-call Screen.drawCircle 4
+call Screen.drawCircle 3
 pop temp 0
 push this 0
 push constant 2

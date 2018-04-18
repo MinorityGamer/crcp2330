@@ -13,7 +13,7 @@ class Wall{
    }
 
    /** gets rid of Wall */
-   method void del() {
+   method void dispose() {
       do Memory.deAlloc(this);
       return;
    }
@@ -21,8 +21,14 @@ class Wall{
    /** Draws the Wall to the screen. */
    method void draw() {
       do Screen.setColor(true);
-      do Screen.drawCircle(x, y, x2, y2);
+      do Screen.drawRectangle(x, y, x2, y2);
       return;
+   }
+   method int getX(){
+      return x;
+   }
+   method int getY(){
+      return y; 
    }
 
 }

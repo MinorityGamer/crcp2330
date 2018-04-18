@@ -5,10 +5,20 @@ class Game {
    field Ball ball; // the square of this game
    field int direction; // the square's current direction: 
                         // 0=none, 1=up, 2=down, 3=left, 4=right
+   field Wall w1;     //upper wall
+   field Wall w2;     //lower wall
+   field Wall w3;    //left wall
+   field Wall w4;    //right wall 
+
 
    /** new Game */
    constructor Game new() {
-      let ball = Ball.new(100, 100, 30);
+      let ball = Ball.new(50, 50, 2);
+      let w1 = Wall.new(0,0,500,5); 
+      let w2 = Wall.new(0,245,500,250);
+      let w3 = Wall.new(0,0,5,250); 
+      let w4 = Wall.new(500,0,505,255); 
+
       let direction = 0;  // initial state is no movement
       return this;
    }
@@ -16,10 +26,14 @@ class Game {
    /** Disposes this game. */
    method void dispose() {
       do ball.dispose();
+      do w1.dispose();
+      do w2.dispose();  
+      do w3.dispose(); 
+      do w4.dispose(); 
       do Memory.deAlloc(this);
       return;
    }
-
+  
    /** Moves ball. */
    method void moveBall() {
       if (direction = 1) { do ball.moveUp(); }

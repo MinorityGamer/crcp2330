@@ -32,7 +32,7 @@ class Ball {
          do Screen.drawCircle(x, (y + rad) - 1, rad);
          let y = y - 2;
          do Screen.setColor(true);
-         do Screen.drawCircle(x, y, x + rad, rad);
+         do Screen.drawCircle(x, y, rad);
       }
       return;
    }
@@ -41,7 +41,7 @@ class Ball {
    method void moveDown() {
       if ((y + rad) < 254) {
          do Screen.setColor(false);
-         do Screen.drawCircle(x, y, x + rad, rad);
+         do Screen.drawCircle(x, y, rad);
          let y = y + 2;
          do Screen.setColor(true);
          do Screen.drawCircle(x, (y + rad) - 1, rad);
@@ -65,7 +65,7 @@ class Ball {
    method void moveRight() {
       if ((x + rad) < 510) {
          do Screen.setColor(false);
-         do Screen.drawCircle(x, y, x + 1, rad);
+         do Screen.drawCircle(x, y, rad);
          let x = x + 2;
          do Screen.setColor(true);
          do Screen.drawCircle((x + rad) - 1, y, rad);
