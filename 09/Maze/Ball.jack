@@ -22,6 +22,7 @@ class Ball {
    method void draw() {
       do Screen.setColor(true);
       do Screen.drawCircle(x, y, rad);
+      do Screen.drawRectangle(440,150,450,160);
       return;
    }
 
@@ -71,5 +72,11 @@ class Ball {
          do Screen.drawCircle((x + rad) - 1, y, rad);
       }
       return;
+   }
+   method int getX(){
+      return x;
+   }
+   method int getY(){
+      return y; 
    }
 }

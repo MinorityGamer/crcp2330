@@ -1,7 +1,6 @@
 /**Starts up Game that moves a ball around a maze */
 //maze form from http://www.ratbehavior.org/RatsAndMazes.htm
 class Game {
-
    field Ball ball; // the square of this game
    field int direction; // the square's current direction: 
                         // 0=none, 1=up, 2=down, 3=left, 4=right
@@ -9,7 +8,7 @@ class Game {
    field Wall w2;     //lower wall
    field Wall w3;    //left wall
    field Wall w4;    //right wall 
-  //add seven minor walls  
+  //add  minor walls  
    field Wall minW1; 
    field Wall minW2; 
    field Wall minW3; 
@@ -35,7 +34,7 @@ class Game {
       let minW6 = Wall.new(400,195,500,200);
       let minW7 = Wall.new(300,0,305,200);
       let minW8 = Wall.new(400,50,405,200);
-
+     
 
       let direction = 0;  // initial state is no movement
       return this;
@@ -56,6 +55,7 @@ class Game {
       do minW6.dispose(); 
       do minW7.dispose(); 
       do minW8.dispose(); 
+       
       do Memory.deAlloc(this);
       return;
    }
@@ -75,6 +75,7 @@ class Game {
       var char key;  // the key currently pressed by the user
       var boolean exit;
       let exit = false;
+
       
       while (~exit) {
          // waits for a key to be pressed
@@ -87,6 +88,8 @@ class Game {
          if (key = 133) { let direction = 2; }   // down arrow
          if (key = 130) { let direction = 3; }   // left arrow
          if (key = 132) { let direction = 4; }   // right arrow
+
+    
 
          // waits for the key to be released
          while (~(key = 0)) {

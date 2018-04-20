@@ -33,6 +33,12 @@ push this 1
 push this 2
 call Screen.drawCircle 3
 pop temp 0
+push constant 440
+push constant 150
+push constant 450
+push constant 160
+call Screen.drawRectangle 4
+pop temp 0
 push constant 0
 return
 function Ball.moveUp 0
@@ -186,4 +192,14 @@ call Screen.drawCircle 3
 pop temp 0
 label IF_FALSE0
 push constant 0
+return
+function Ball.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Ball.getY 0
+push argument 0
+pop pointer 0
+push this 1
 return
