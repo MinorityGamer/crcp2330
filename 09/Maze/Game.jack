@@ -74,9 +74,12 @@ class Game {
    method void run() {
       var char key;  // the key currently pressed by the user
       var boolean exit;
+      var int ballX; 
+      var int ballY; 
+     
       let exit = false;
 
-      
+     
       while (~exit) {
          // waits for a key to be pressed
          while (key = 0) {
@@ -89,13 +92,28 @@ class Game {
          if (key = 130) { let direction = 3; }   // left arrow
          if (key = 132) { let direction = 4; }   // right arrow
 
-    
+         let ballX = ball.getX(); 
+         let ballY = ball.getY(); 
+       
 
          // waits for the key to be released
          while (~(key = 0)) {
             let key = Keyboard.keyPressed();
             do moveBall();
          }
+      
+         if(ballX > 439){
+            if(ballX < 459){
+               if(ballY > 149){ 
+                  if(ballY < 159){   
+                     do Output.printString("FINISHED!");
+                     return; 
+                  }
+               }
+            }
+         }
+        
+         
      } // while
      return;
    }

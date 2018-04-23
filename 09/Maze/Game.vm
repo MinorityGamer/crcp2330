@@ -178,7 +178,7 @@ call Sys.wait 1
 pop temp 0
 push constant 0
 return
-function Game.run 2
+function Game.run 4
 push argument 0
 pop pointer 0
 push constant 0
@@ -247,6 +247,12 @@ label IF_TRUE4
 push constant 4
 pop this 1
 label IF_FALSE4
+push this 0
+call Ball.getX 1
+pop local 2
+push this 0
+call Ball.getY 1
+pop local 3
 label WHILE_EXP2
 push local 0
 push constant 0
@@ -261,6 +267,58 @@ call Game.moveBall 1
 pop temp 0
 goto WHILE_EXP2
 label WHILE_END2
+push local 2
+push constant 439
+gt
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 2
+push constant 459
+lt
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 3
+push constant 149
+gt
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push local 3
+push constant 159
+lt
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 9
+call String.new 1
+push constant 70
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+label IF_FALSE8
+label IF_FALSE7
+label IF_FALSE6
+label IF_FALSE5
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
