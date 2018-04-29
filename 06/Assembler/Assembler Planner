@@ -1,0 +1,84 @@
+Assembler Planner
+Assembler 
+-read the assembly command
+	-Read this into an array of characters
+	-ignore spaces and comments 
+-breaks it into parts
+load R1,18 
+Load|r1|18
+//simple string manipulation
+-looks up binary
+ -Need a table for each of the commands 
+-combine these codes into a single command
+	-some cacatenation to compose them 
+-ouptput this machine language
+
+
+Uses symbols for labels and variables 
+-JMP loop (for jump) 
+-LOAD R1, Weight (weight is a variable) 
+Labels are replaced with an address 
+Variables are replaced with an address
+
+
+One way 
+-Leave black until label appears then fix 
+
+Simpler way 
+-Two passes. 
+-Read each label first and build the table 
+-Then convert each label 
+
+
+Assembler 
+Parses through each line of the code and picks out labels and builds a table off of theose labels 
+After then pass through and convert from a table 
+
+Assembler ThrTh
+-using it as a pass through and convert from a table 
+
+Three 
+-Parser 
+-Convert mnemonics-> code 
+-Handling symbols
+
+*Work first on Parser and converting
+Then when comfortable do handling symbols 
+
+
+//Reading and parser 
+-start reading a file 
+-constructor parser object accepts a string with a specific file name 
+-move to next command in the file 
+	-are we finished boolean anymore(); 
+	-get next command void advance(); 
+	-needs to read one line at a time 
+	-needs to skip whitespaces and comments bool isComment(); 
+	
+-Gets the fields of the current comman 
+	-type of command (A-command, C-Command, or Label)
+	-break down into three based off of the first bit 
+		-@ is either a label or an A-Command 
+		-any other is a C-Command 
+	-Then need to break down each into it's parts 
+	-what instruction is it? Dest? Comp? Jump? 
+
+//Converter 
+-Gets the parts of the command 
+-Takes individual parts and converts them seperately 
+-outputs the combined conversion 
+
+Ex: Of Parser and converter 
+String c = parser.comp(); "M+1"
+String d = parser.dest(); "D"
+String j = parser.jump(); "JGT'
+
+String biC = code.comp(c ); //"1110111"
+String biD = code.dest(d); //"010"
+String biJ = code.jump(j); //"001"
+
+String converted = "111"+biC+biD+biJ
+	
+
+
+
