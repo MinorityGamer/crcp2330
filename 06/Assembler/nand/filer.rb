@@ -1,4 +1,7 @@
-# ruby sample code.
+#CURRENT GOALS: 1) TRY TO GET IT TO READ A LINE 2) GET IT TO RECOGNIZE A or C instructions
+# Secondary Goals: 1) convert a instructions 2) convert c instructions
+#tertiary goals: 1) get it to handle symbols 
+#ruby sample code.
 # process every line in a text file with ruby (version 2).
 class Parser
   def initialize(fileName,currChar,array_currInstructions)
